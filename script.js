@@ -1,33 +1,39 @@
-alert("Bienvenid@ a Panchos Arcu!");
-var pan = 0;
-var panName = "";
-var salchicha = 0;
-var salchichaName = "";
-var toppings = 10;
-var toppingsList = "";
-var salsas = 10;
-var salsasList = "";
+alert("Bienvenid@ a Panchos Arcu (Con objetos)!");
+
+function panchoConstructor () { 
+    this.pan = 0;
+    this.panName = "";
+    this.salchicha = 0;
+    this.salchichaName = "";
+    this.toppings = 10,
+    this.toppingsList = "";
+    this.salsas = 10;
+    this.salsasList = "";
+}
+
+const pancho = new panchoConstructor();
+
+var seguir = true;
 var i = 0;
 var total = 0;
-var seguir = true;
 
 while (seguir == true) {
-    pan = parseInt(prompt("¿Que pan quiere para su pancho? (Escriba el numero porfavor) 1 Pan integral($70) 2 Pan de papa($80) 3 Pan clasico($60)"));
-    switch (pan) {
+    pancho.pan = parseInt(prompt("¿Que pan quiere para su pancho? (Escriba el numero porfavor) 1 Pan integral($70) 2 Pan de papa($80) 3 Pan clasico($60)"));
+    switch (pancho.pan) {
         case 1:
-            panName = "integral"
+            pancho.panName = "integral"
             total += 70;
             seguir = false;
             break;
         
         case 2:
-            panName = "de papa"
+            pancho.panName = "de papa"
             total += 80;
             seguir = false;
             break;
 
         case 3:
-            panName = "clasico"
+            pancho.panName = "clasico"
             total += 60;
             seguir = false;
             break;
@@ -41,22 +47,22 @@ while (seguir == true) {
 seguir = true;
 
 while(seguir == true){
-    salchicha = parseInt(prompt("¿Que salchicha quiere para su pancho? (Escriba el numero porfavor) 1 Viena($60) 2 Alemana($80) 3 De carne vacuna(Kosher)($100)"));
-    switch (salchicha) {
+    pancho.salchicha = parseInt(prompt("¿Que salchicha quiere para su pancho? (Escriba el numero porfavor) 1 Viena($60) 2 Alemana($80) 3 De carne vacuna(Kosher)($100)"));
+    switch (pancho.salchicha) {
         case 1:
-            salchichaName = "viena"
+            pancho.salchichaName = "viena"
             total += 60;
             seguir = false;
             break;
         
         case 2:
-            salchichaName = "alemana"
+            pancho.salchichaName = "alemana"
             total += 80;
             seguir = false;
             break;
 
         case 3:
-            salchichaName = "vacuna"
+            pancho.salchichaName = "vacuna"
             total += 100;
             seguir = false;
             break;
@@ -66,94 +72,95 @@ while(seguir == true){
     }
 }
     
-while(toppings!=0){
+while(pancho.toppings!=0){
     i++;
-    toppings = parseInt(prompt("¿Que topping Nro."+i+" quiere para su pancho? (Escriba el numero porfavor) 0 Ninguno 1 Bacon($60) 2 Carne($50) 3 Papas pay($20) 4 Jalapeños($20) 5 Palta($100)"));
-    if (i>1 && toppings!=0 &&toppings>-1&&toppings<6) {
-        toppingsList +=", ";
+    pancho.toppings = parseInt(prompt("¿Que topping Nro."+i+" quiere para su pancho? (Escriba el numero porfavor) 0 Ninguno 1 Bacon($60) 2 Carne($50) 3 Papas pay($20) 4 Jalapeños($20) 5 Palta($100)"));
+    if (i>1 && pancho.toppings!=0 && pancho.toppings>-1&& pancho.toppings<6) {
+        pancho.toppingsList +=", ";
     }
-    switch (toppings) {
+    switch (pancho.toppings) {
         case 0:
             break;
 
         case 1:
-            toppingsList += "bacon"
+            pancho.toppingsList += "bacon"
             total += 60;
             break;
         
         case 2:
-            toppingsList += "carne"
+            pancho.toppingsList += "carne"
             total += 50;
             break;
     
         case 3:
-            toppingsList += "papas pay"
+            pancho.toppingsList += "papas pay"
             total += 20;
             break;
 
         case 4:
-            toppingsList += "jalapeños"
+            pancho.toppingsList += "jalapeños"
             total += 20;
             break;    
         
         case 5:
-            toppingsList += "palta"
+            pancho.toppingsList += "palta"
             total += 100;
             break;    
     }
     
 }
 i=0;
-while(salsas!=0){
+while(pancho.salsas!=0){
     i++;
-    salsas = parseInt(prompt("¿Que salsa Nro."+i+" quiere para su pancho? (Escriba el numero porfavor) 0 Ninguno 1 Ketchup($0) 2 Barbacoa($10) 3 Mostaza($0) 4 Mayonesa($0) 5 Cheddar($70) 6 Salsa Golf($0) 7 Chili($100) 8 Chucrut($30)"));
-    if (toppingsList!="" && salsas!=0 &&salsas>-1&&salsas<9) {
-        salsasList +=", ";
+    pancho.salsas = parseInt(prompt("¿Que salsa Nro."+i+" quiere para su pancho? (Escriba el numero porfavor) 0 Ninguno 1 Ketchup($0) 2 Barbacoa($10) 3 Mostaza($0) 4 Mayonesa($0) 5 Cheddar($70) 6 Salsa Golf($0) 7 Chili($100) 8 Chucrut($30)"));
+    if (pancho.toppingsList!="" && pancho.salsas!=0 &&pancho.salsas>-1&&pancho.salsas<9) {
+        pancho.salsasList +=", ";
     }
-    switch (salsas) {
+    switch (pancho.salsas) {
         case 0:
             break;
 
         case 1:
-            salsasList += "ketchup"
+            pancho.salsasList += "ketchup"
             total += 0;
             break;
         
         case 2:
-            salsasList += "barbacoa"
+            pancho.salsasList += "barbacoa"
             total += 10;
             break;
     
         case 3:
-            salsasList += "mostaza"
+            pancho.salsasList += "mostaza"
             total += 0;
             break;
 
         case 4:
-            salsasList += "mayonesa"
+            pancho.salsasList += "mayonesa"
             total += 0;
             break;    
         
         case 5:
-            salsasList += "cheddar"
+            pancho.salsasList += "cheddar"
             total += 70;
             break;   
 
         case 6:
-            salsasList += "salsa golf"
+            pancho.salsasList += "salsa golf"
             total += 0;
             break; 
         
         case 7:
-            salsasList += "chili"
+            pancho.salsasList += "chili"
             total += 100;
             break; 
 
         case 8:
-            salsasList += "chucrut"
+            pancho.salsasList += "chucrut"
             total += 30;
             break; 
     }
 }
-alert("Usted pidió un pancho con pan "+panName+", salchicha "+ salchichaName+", con " +toppingsList+salsasList+" por un total de "+total);
+alert("Usted pidió un pancho con pan "+pancho.panName+", salchicha "+ pancho.salchichaName+", con " +pancho.toppingsList+pancho.salsasList+" por un total de $"+total+" pesos.");
 alert("Muchas gracias por su compra, vuelva pronto!");
+console.log(pancho);
